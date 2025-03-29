@@ -10,6 +10,7 @@
             display: flex;
             font-family: Arial, sans-serif;
             margin: 0;
+            background: #f5f5f5;
         }
         .sidebar {
             width: 250px;
@@ -20,7 +21,7 @@
             display: flex;
             flex-direction: column;
         }
-        .sidebar h1 {
+        .sidebar h1, .sidebar ul {
             text-align: center;
         }
         .sidebar ul {
@@ -30,25 +31,25 @@
         .sidebar ul li {
             margin: 15px 0;
         }
-        .sidebar ul li a {
+        .sidebar ul li a, .signup-btn {
             color: white;
             text-decoration: none;
             font-size: 18px;
+            display: block;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
         }
         .signup-btn {
-            display: block;
             margin-top: auto;
-            text-align: center;
             background: #f04e30;
-            color: white;
-            padding: 10px;
-            text-decoration: none;
-            border-radius: 5px;
+        }
+        .signup-btn:hover, .sidebar ul li a:hover {
+            background: #444;
         }
         .main-content {
             flex: 1;
             padding: 20px;
-            background: #f5f5f5;
             overflow-y: auto;
         }
         section {
@@ -61,22 +62,19 @@
         form {
             display: flex;
             flex-direction: column;
+            max-width: 300px;
+            margin: auto;
         }
-        label {
+        label, input, button {
             margin: 5px 0;
-        }
-        input {
             padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
             border-radius: 5px;
+            border: 1px solid #ccc;
         }
         button {
             background: #28a745;
             color: white;
-            padding: 10px;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
         }
         button:hover {
