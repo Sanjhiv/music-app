@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Spotify Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            color: #1DB954;
+        }
+        .music-section {
+            margin-top: 20px;
+        }
+        .music-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .music-item {
+            background: #181818;
+            padding: 15px;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+        }
+        .music-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .music-item button {
+            margin-top: 10px;
+            background: #1DB954;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+        .music-item button:hover {
+            background: #17a74a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Spotify Clone</h1>
+        
+        <div class="music-section">
+            <h2>Trending Music</h2>
+            <div class="music-list">
+                <div class="music-item">
+                    <img src="album1.jpg" alt="Album 1">
+                    <p>Song 1 - Artist 1</p>
+                    <button>Play</button>
+                </div>
+                <div class="music-item">
+                    <img src="album2.jpg" alt="Album 2">
+                    <p>Song 2 - Artist 2</p>
+                    <button>Play</button>
+                </div>
+                <div class="music-item">
+                    <img src="album3.jpg" alt="Album 3">
+                    <p>Song 3 - Artist 3</p>
+                    <button>Play</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

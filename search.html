@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Music - Spotify Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            color: #1DB954;
+        }
+        .search-box {
+            margin-top: 20px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            padding: 10px 20px;
+            background: #1DB954;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-results {
+            margin-top: 20px;
+        }
+        .result-item {
+            background: #181818;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Music</h1>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search for a song or artist...">
+            <button onclick="searchMusic()">Search</button>
+        </div>
+        <div class="search-results" id="results"></div>
+    </div>
+
+    <script>
+        function searchMusic() {
+            const query = document.getElementById("search-input").value;
+            const resultsContainer = document.getElementById("results");
+            resultsContainer.innerHTML = "";
+
+            if (query) {
+                const fakeResults = [
+                    { title: "Song 1", artist: "Artist 1" },
+                    { title: "Song 2", artist: "Artist 2" },
+                    { title: "Song 3", artist: "Artist 3" }
+                ];
+                
+                fakeResults.forEach(song => {
+                    const div = document.createElement("div");
+                    div.classList.add("result-item");
+                    div.innerHTML = `<p><strong>${song.title}</strong> - ${song.artist}</p>`;
+                    resultsContainer.appendChild(div);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

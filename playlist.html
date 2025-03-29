@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlists - Spotify Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        h1 {
+            color: #1DB954;
+        }
+        .playlist-list {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .playlist-item {
+            background: #181818;
+            padding: 15px;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+        }
+        .playlist-item img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .playlist-item p {
+            margin-top: 10px;
+        }
+        .playlist-item button {
+            background: #1DB954;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .playlist-item button:hover {
+            background: #17a74a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Playlists</h1>
+        <div class="playlist-list" id="playlists"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const playlistContainer = document.getElementById("playlists");
+            const playlists = [
+                { title: "Top Hits", image: "playlist1.jpg", url: "https://example.com/top-hits" },
+                { title: "Chill Vibes", image: "playlist2.jpg", url: "https://example.com/chill-vibes" },
+                { title: "Workout", image: "playlist3.jpg", url: "https://example.com/workout" },
+                { title: "Party Mix", image: "playlist4.jpg", url: "https://example.com/party-mix" },
+                { title: "Classical", image: "playlist5.jpg", url: "https://example.com/classical" }
+            ];
+            
+            playlists.forEach(playlist => {
+                const div = document.createElement("div");
+                div.classList.add("playlist-item");
+                div.innerHTML = `<img src="${playlist.image}" alt="${playlist.title}"><p><strong>${playlist.title}</strong></p><button onclick="window.location.href='${playlist.url}'">Listen Now</button>`;
+                playlistContainer.appendChild(div);
+            });
+        });
+    </script>
+</body>
+</html>
