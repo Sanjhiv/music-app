@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .player-container {
+            text-align: center;
+            background: #181818;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .controls button {
+            background: #1DB954;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            margin: 5px;
+        }
+        .controls button:hover {
+            background: #17a74a;
+        }
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <h1>Now Playing</h1>
+        <audio id="audioPlayer" controls></audio>
+        <div class="controls">
+            <button onclick="prevSong()">⏮ Prev</button>
+            <button onclick="playPause()">▶️ Play/Pause</button>
+            <button onclick="nextSong()">⏭ Next</button>
+        </div>
+        <input type="range" id="volumeControl" min="0" max="1" step="0.1" onchange="changeVolume(this.value)">
+    </div>
+    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        let songFile = urlParams.get('song');
+        let audioPlayer = document.getElementById("audioPlayer");
+        let songs = ["sithira_puthiri.mp3", "kabaradakam.mp3", "orasaadha.mp3"];
+        let currentSongIndex = songs.indexOf(songFile);
+        
+        function loadSong(index) {
+            if (index >= 0 && index < songs.length) {
+                audioPlayer.src = songs[index];
+                audioPlayer.play();
+            }
+        }
+        
+        function playPause() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+            } else {
+                audioPlayer.pause();
+            }
+        }
+        
+        function nextSong() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
+        }
+        
+        function prevSong() {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
+        }
+        
+        function changeVolume(value) {
+            audioPlayer.volume = value;
+        }
+        
+        loadSong(currentSongIndex);
+    </script>
+</body>
+</html>
