@@ -61,29 +61,25 @@
                 <div class="music-item">
                     <img src="1.jpeg" alt="Album 1">
                     <p>Sithira Puthiri - Album</p>
-                    <button onclick="playSong('sithira_puthiri.mp3')">Play</button>
+                    <button onclick="openPlayer('sithira_puthiri.mp3')">Play</button>
                 </div>
                 <div class="music-item">
                     <img src="2.jpeg" alt="Album 2">
                     <p>Kabaradakam - Guruvayoor Ambalanadayil</p>
-                    <button onclick="playSong('kfk.mp3')">Play</button>
+                    <button onclick="openPlayer('kfk.mp3')">Play</button>
                 </div>
                 <div class="music-item">
                     <img src="3.jpg" alt="Album 3">
                     <p>Orasaadha - Album</p>
-                    <button onclick="playSong('orasaadha.mp3')">Play</button>
+                    <button onclick="openPlayer('orasaadha.mp3')">Play</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <audio id="audioPlayer" controls style="display:none;"></audio>
-
     <script>
-        function playSong(songFile) {
-            let audioPlayer = document.getElementById("audioPlayer");
-            audioPlayer.src = songFile;
-            audioPlayer.play();
+        function openPlayer(songFile) {
+            window.location.href = `player.html?song=${songFile}`;
         }
     </script>
 </body>
