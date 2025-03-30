@@ -24,6 +24,12 @@
             padding: 20px;
             border-radius: 10px;
         }
+        .album-art {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
         .controls button {
             background: #1DB954;
             border: none;
@@ -45,6 +51,7 @@
 <body>
     <div class="player-container">
         <h1>Now Playing</h1>
+        <img id="albumArt" class="album-art" src="" alt="Album Art">
         <audio id="audioPlayer" controls></audio>
         <div class="controls">
             <button onclick="prevSong()">⏮ Prev</button>
@@ -57,13 +64,22 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         let songFile = urlParams.get('song');
+        let albumArt = urlParams.get('image');
         let audioPlayer = document.getElementById("audioPlayer");
-        let songs = ["sithira_puthiri.mp3", "kabaradakam.mp3", "orasaadha.mp3"];
-        let currentSongIndex = songs.indexOf(songFile);
+        let albumArtElement = document.getElementById("albumArt");
+        
+        let songs = [
+            {file: "sithira_puthiri.mp3", image: "1.jpeg"},
+            {file: "kabaradakam.mp3", image: "2.jpeg"},
+            {file: "orasaadha.mp3", image: "3.jpg"}
+        ];
+        
+        let currentSongIndex = songs.findIndex(song => song.file === songFile);
         
         function loadSong(index) {
             if (index >= 0 && index < songs.length) {
-                audioPlayer.src = songs[index];
+                audioPlayer.src = songs[index].file;
+                albumArtElement.src = songs[index].image;
                 audioPlayer.play();
             }
         }
