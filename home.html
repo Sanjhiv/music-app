@@ -55,27 +55,36 @@
 <body>
     <div class="container">
         <h1>Ellarum Vanga Always Welcomes You</h1>
-        
         <div class="music-section">
             <h2>Trending Music</h2>
             <div class="music-list">
                 <div class="music-item">
                     <img src="1.jpeg" alt="Album 1">
                     <p>Sithira Puthiri - Album</p>
-                    <button>Play</button>
+                    <button onclick="playSong('sithira_puthiri.mp3')">Play</button>
                 </div>
                 <div class="music-item">
                     <img src="2.jpeg" alt="Album 2">
                     <p>Kabaradakam - Guruvayoor Ambalanadayil</p>
-                    <button>Play</button>
+                    <button onclick="playSong('kfk.mp3')">Play</button>
                 </div>
                 <div class="music-item">
                     <img src="3.jpg" alt="Album 3">
                     <p>Orasaadha - Album</p>
-                    <button>Play</button>
+                    <button onclick="playSong('orasaadha.mp3')">Play</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <audio id="audioPlayer" controls style="display:none;"></audio>
+
+    <script>
+        function playSong(songFile) {
+            let audioPlayer = document.getElementById("audioPlayer");
+            audioPlayer.src = songFile;
+            audioPlayer.play();
+        }
+    </script>
 </body>
 </html>
